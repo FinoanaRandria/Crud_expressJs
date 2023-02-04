@@ -2,6 +2,12 @@ const mongoose = require('mongoose');
 
 const model = require('./models');
 
+const collectData =  async()=>{
+     const collectData = await model.find()
+     return collectData
+}
+
+
 const insert = async(info)=>{
      await model.create({
           nom:info.nom,
@@ -11,12 +17,14 @@ const insert = async(info)=>{
      })
 }
 
+
 (async ()=>{
    
      try {
           await mongoose.connect("mongodb://localhost/Crud");
           console.log("connected with mongodb")
 
+          
          
      } catch (error) {
         console.log(message.error)
@@ -26,4 +34,4 @@ const insert = async(info)=>{
 })()
 
 
-module.exports={insert}
+module.exports={insert,collectData}
