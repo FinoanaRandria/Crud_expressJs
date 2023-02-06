@@ -1,5 +1,5 @@
-const {insert,collectData} = require('../models/bd');
-
+const {insert,collectData,deletes} = require('../models/bd');
+/* pour recupeer le valeur de la promesse */
 exports.racine=  async(req,res)=>{
 const data = await collectData()
      console.log(data)
@@ -12,4 +12,18 @@ exports.ajouter = (req,res)=>{
     insert(info)
     res.end()
     console.log(info)
+}
+
+
+exports.supprimer = (req,res)=>{
+   const info = req.body
+    deletes(info)
+    res.end()
+    
+}
+
+
+exports.modifier = (req,res)=>{
+
+
 }
