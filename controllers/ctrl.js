@@ -1,4 +1,4 @@
-const {insert,collectData,deletes} = require('../models/bd');
+const {insert,collectData,deletes,updates} = require('../models/bd');
 /* pour recupeer le valeur de la promesse */
 exports.racine=  async(req,res)=>{
 const data = await collectData()
@@ -23,7 +23,17 @@ exports.supprimer = (req,res)=>{
 }
 
 
-exports.modifier = (req,res)=>{
-
+exports.modifier = async(req,res)=>{
+   const info = req.body
+   const data = await collectData()
+     
+   
+    for(eltms of data){
+        if(eltms._id=== info.id){
+            updates(info)
+        }
+    }
+    console.log(data)
+    res.end()
 
 }

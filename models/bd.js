@@ -8,6 +8,7 @@ const collectData =  async()=>{
 }
 
 
+
 const insert = async(info)=>{
      await model.create({
           nom:info.nom,
@@ -23,6 +24,15 @@ const deletes = async(info)=>{
           prenom:info.prenom,
           telephone:info.telephone
      })
+}
+
+const updates = async(info)=>{
+   await model.updateOne({
+       nom:info.nom,
+       prenom:info.prenom,
+       telephone:info.telephone
+
+   })
 }
 
 (async ()=>{
@@ -41,4 +51,4 @@ const deletes = async(info)=>{
 })()
 
 
-module.exports={insert,collectData,deletes}
+module.exports={insert,collectData,deletes,updates}

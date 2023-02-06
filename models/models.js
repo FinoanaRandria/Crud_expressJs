@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const modelSchema = mongoose.Schema({
+    
     nom:String,
     prenom:String,
     telephone:Number
