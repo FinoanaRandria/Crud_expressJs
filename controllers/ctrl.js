@@ -27,12 +27,8 @@ exports.modifier = async(req,res)=>{
    const info = req.body
    const data = await collectData()
      
-   
-    for(eltms of data){
-        if(eltms._id=== info.id){
-            updates(info)
-        }
-    }
+   updates(info)
+    
     console.log(data)
     res.end()
 

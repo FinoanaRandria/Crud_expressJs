@@ -26,13 +26,14 @@ const deletes = async(info)=>{
      })
 }
 
-const updates = async(info)=>{
-   await model.updateOne({
-       nom:info.nom,
-       prenom:info.prenom,
-       telephone:info.telephone
 
-   })
+const updates = async(info)=>{
+   await model.findOneAndUpdate({
+       _id : info.id,
+   },{nom:info.nom,
+     prenom:info.prenom,
+     telephone:info.telephone
+     })
 }
 
 (async ()=>{
